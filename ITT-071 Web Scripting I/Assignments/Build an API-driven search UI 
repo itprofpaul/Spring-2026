@@ -1,0 +1,300 @@
+
+Assignment: Build an API-Driven Search UI
+
+Create a new page on your GitHub Pages site that lets a user search for real data from a public API.
+Assignment Goal
+
+Build a small web application that allows a user to type a search term, click a button, and see results pulled from a public API.
+
+Your project should combine the skills from this unit:
+
+    fetch()
+    Promises and async/await
+    JSON data
+    query parameters
+    loading states
+    error handling
+    retry-friendly user experience
+
+What You Are Building
+
+You will create a new page on your existing GitHub Pages site for this assignment. That page should include:
+
+    a page title and short instructions
+    a search input
+    a search button
+    a results area
+    a loading message while the request is running
+    an error message if something fails
+    a clean layout using HTML, CSS, and JavaScript
+
+Requirements
+
+    Use your existing GitHub Pages site
+    Create a new HTML page for this assignment
+    Use a public API
+    Allow the user to enter a search term
+    Use that search term in the API request
+    Display at least 3 pieces of information from the returned data
+    Use fetch() with async/await
+    Show a loading state
+    Show an error state
+    Handle blank input
+    Deploy the finished page to GitHub Pages
+
+Suggested API Options
+
+You may choose another instructor-approved public API, but these are good beginner-friendly options:
+```
+Option 1: JSONPlaceholder
+
+Best for: searching posts, users, comments, or todos for practice
+
+Link: https://jsonplaceholder.typicode.com/ Links to an external site.
+
+Why it is good: simple JSON, easy endpoints, great for learning fetch and search/filter logic
+
+Example idea: let users search posts by user ID or browse users and display name, email, and company
+Option 2: Open-Meteo
+
+Best for: weather search projects
+
+Link: https://open-meteo.com/en/docs Links to an external site.
+
+Why it is good: no API key required for common educational use, real data, strong documentation
+
+Example idea: let users search for a city, then show temperature, wind speed, and forecast data
+
+Note: this option is slightly more advanced because city-name search often works best with a geocoding step first.
+Option 3: TheMealDB
+
+Best for: recipe or meal search projects
+
+Link: https://www.themealdb.com/api.php Links to an external site.
+
+Why it is good: easy search endpoints, visual data, great for beginner UI projects
+
+Example idea: let users search for a meal name and display the meal title, category, area, and image
+```
+Recommended Project Ideas
+
+    Recipe Search: search by meal name and display recipe information
+    Weather Lookup: search by city and display current weather details
+    User Finder: search users or posts and display selected details
+
+Easiest option for most students: TheMealDB or JSONPlaceholder.
+Step-by-Step Walkthrough
+```
+Step 1: Create a New Page on Your GitHub Pages Site
+
+Inside your existing GitHub Pages project, create a new HTML file for this assignment.
+
+Example file names:
+
+    api-search.html
+    search.html
+    meal-search.html
+
+You may also create a matching CSS file and JavaScript file if you want to keep your code organized.
+Step 2: Build the Basic Page Structure
+
+Your page should include:
+
+    a heading
+    a short one-sentence explanation of what the page does
+    a text input
+    a search button
+    a status message area
+    a results container
+
+<h1>API Search UI</h1>
+```
+
+Search for data using a public API.
+
+
+
+
+Search
+
+```
+Step 3: Choose Your API and Test It in the Browser
+
+Before writing your app, visit the API documentation and test a sample endpoint in your browser.
+
+Examples:
+
+    https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
+    https://jsonplaceholder.typicode.com/users
+    https://geocoding-api.open-meteo.com/v1/search?name=Chicago&count=1&language=en&format=json
+
+Look carefully at the JSON structure so you know what properties are available.
+Step 4: Connect the Button to JavaScript
+
+Use JavaScript to detect when the user clicks the search button.
+
+const searchBtn = document.getElementById("searchBtn");
+```
+
+const searchInput = document.getElementById("searchInput");
+const status = document.getElementById("status");
+const results = document.getElementById("results");
+
+searchBtn.addEventListener("click", runSearch);
+
+```
+Step 5: Validate the Input
+
+Do not allow blank searches. If the input is empty, show a message and stop.
+
+function runSearch() {
+```
+
+const term = searchInput.value.trim();
+
+if (!term) {
+status.textContent = "Please enter a search term.";
+results.innerHTML = "";
+return;
+}
+
+// continue with API request
+}
+
+```
+Step 6: Build the API URL with the Search Term
+
+Use the user's input as part of the request URL.
+
+Example with TheMealDB:
+
+const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(term)}`;
+
+Important: use encodeURIComponent() so search terms with spaces or symbols work correctly.
+Step 7: Fetch the Data with async/await
+
+Show a loading message while the request is running. Use try, catch, and finally.
+
+async function runSearch() {
+```
+
+const term = searchInput.value.trim();
+
+if (!term) {
+status.textContent = "Please enter a search term.";
+results.innerHTML = "";
+return;
+}
+
+status.textContent = "Loading...";
+results.innerHTML = "";
+
+try {
+const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(term)}`;
+const response = await fetch(url);
+
+```
+if (!response.ok) {
+  throw new Error(`HTTP error: ${response.status}`);
+}
+
+const data = await response.json();
+console.log(data);
+```
+
+} catch (error) {
+status.textContent = "Something went wrong. Please try again.";
+console.error(error);
+}
+}
+
+```
+Step 8: Display the Results on the Page
+
+Take values from the JSON response and place them into your results container.
+
+For example, with TheMealDB, you might display:
+
+    meal name
+    category
+    area
+    meal image
+
+if (!data.meals) {
+```
+
+status.textContent = "No results found.";
+return;
+}
+
+status.textContent = `Found ${data.meals.length} result(s).`;
+
+results.innerHTML = data.meals.map(meal => `  <div class="card">
+    <h3>${meal.strMeal}</h3>
+    <p><strong>Category:</strong> ${meal.strCategory}</p>
+    <p><strong>Area:</strong> ${meal.strArea}</p>
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="200" />
+  </div>`).join("");
+
+```
+Step 9: Add CSS Styling
+
+Make your page visually organized. At minimum, style:
+
+    the page layout
+    the search bar area
+    the buttons
+    the result cards
+    the status message
+
+Step 10: Test Different Cases
+
+Test all of these before submitting:
+
+    a valid search
+    a blank search
+    a search with no results
+    a second search after the first one
+    the page after deployment on GitHub Pages
+
+Step 11: Publish to GitHub Pages
+
+Push your updated files to your GitHub repository. Once GitHub Pages updates, test the live page in the browser.
+
+Make sure the new page is reachable from your site. Add a link from your main page if needed.
+```
+Suggested File Structure
+
+your-site/
+├── index.html
+├── api-search.html
+├── css/
+│   └── api-search.css
+└── js/
+    └── api-search.js
+
+Checklist Before You Submit
+
+    I created a new page on my GitHub Pages site
+    I used a real public API
+    I used a search input and search button
+    I used fetch() with async/await
+    I used the search term in the API request
+    I displayed real results on the page
+    I included a loading message
+    I included an error message
+    I handled blank input
+    I tested the live GitHub Pages version
+
+Submission
+
+Submit the following:
+
+    the GitHub repository link
+    the live GitHub Pages URL for the new page
+
+Key Reminder
+
+This assignment is not just about calling an API. It is about creating a usable interface that helps the user search, understand the results, and recover if something goes wrong.
+
+Think like a developer and like a user.

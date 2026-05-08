@@ -1,0 +1,340 @@
+
+Assignment: Build a Wordle-Style Game
+
+Create a new page on your GitHub Pages site that lets a player guess a hidden word using keyboard input, game states, and clean JavaScript structure.
+Assignment Goal
+
+Build a browser-based word guessing game inspired by Wordle using HTML, CSS, and JavaScript. Your game should run as a new page on your existing GitHub Pages site.
+
+This assignment is designed to bring together the major ideas from this module:
+
+    game loops and repeated updates
+    timers or limited repeated actions when appropriate
+    keyboard input
+    state machines such as playing, win, and lose
+    clean separation between UI code and logic code
+
+What You Are Building
+
+You will create a game where the player tries to guess a hidden word one row at a time.
+
+Your game should include:
+
+    a visible grid of guesses
+    keyboard input from the player
+    a hidden target word
+    feedback after each guess
+    a win state if the player guesses correctly
+    a lose state if the player runs out of guesses
+    a restart option
+
+Core Requirements
+
+    Use your existing GitHub Pages site
+    Create a new page for the assignment
+    Use HTML, CSS, and JavaScript only
+    Create a playable Wordle-style game
+    Use keyboard input for letters
+    Allow the player to submit a full guess
+    Show feedback for each letter after a guess
+    Track the game state with values such as playing, win, and lose
+    Prevent more input after the game ends
+    Include a restart button or restart method
+    Separate UI rendering from game logic as much as possible
+    Deploy the finished page to GitHub Pages
+
+Game Rules for This Assignment
+
+Use these rules unless your instructor approves a variation:
+
+    The hidden word should be 5 letters long
+    The player gets 6 guesses
+    The player types one letter at a time
+    Backspace removes the last typed letter in the current row
+    Enter submits the guess only when the row has 5 letters
+    After submission, each letter should receive feedback
+
+Suggested feedback colors:
+
+    Green: correct letter in the correct position
+    Yellow: correct letter in the wrong position
+    Gray: letter is not in the target word
+
+Suggested File Structure
+
+your-site/
+├── index.html
+├── word-game.html
+├── css/
+│   └── word-game.css
+└── js/
+    └── word-game.js
+
+You can choose different file names, but your project should be organized and easy to follow.
+Step-by-Step Walkthrough
+```
+Step 1: Create a New Page on Your GitHub Pages Site
+
+Inside your current GitHub Pages project, create a new HTML page for this game.
+
+Examples:
+
+    word-game.html
+    guess-game.html
+    wordle-clone.html
+
+Also create a CSS file and JavaScript file so your code stays organized.
+Step 2: Build the Basic HTML Layout
+
+Your page should include:
+
+    a title
+    short instructions
+    a game board area
+    a status message area
+    a restart button
+
+<h1>Word Guess Game</h1>
+```
+
+Guess the hidden 5-letter word in 6 tries.
+
+Type a word to begin.
+
+
+Restart Game
+
+```
+Step 3: Create the Board Grid
+
+Your board should visually represent 6 rows and 5 columns.
+
+You may build the grid in either of these ways:
+
+    write the boxes directly in HTML
+    generate them using JavaScript
+
+A JavaScript-generated board is often cleaner for this kind of project.
+Step 4: Create a Game Object for State
+
+Store important game data in one place.
+
+const game = {
+```
+
+targetWord: "APPLE",
+currentRow: 0,
+currentCol: 0,
+guesses: ["", "", "", "", "", ""],
+state: "playing"
+};
+
+```
+
+You may use a fixed word at first while building. Later, you can replace it with a random word from a small array.
+Step 5: Listen for Keyboard Input
+
+Use a keydown event listener to capture player input.
+
+document.addEventListener("keydown", (event) => {
+```
+
+if (game.state !== "playing") {
+return;
+}
+
+const key = event.key.toUpperCase();
+processInput(key);
+renderGame();
+});
+
+```
+
+This follows the pattern:
+
+input → logic → render
+Step 6: Process Letters, Backspace, and Enter
+
+Your logic should handle three main input cases:
+
+    letter keys add a letter to the current row
+    Backspace removes the last letter
+    Enter submits the row when it has 5 letters
+
+Helpful rule:
+
+    ignore input if the game is not in the playing state
+    ignore extra letters once a row already has 5 characters
+
+Step 7: Check the Guess Against the Target Word
+
+When the player presses Enter, compare the current guess to the target word.
+
+For each letter, determine whether it is:
+
+    correct and in the correct place
+    correct but in the wrong place
+    not in the word
+
+You can store that result in a separate structure for later rendering.
+
+// example idea
+```
+
+const feedback = ["correct", "present", "absent", "absent", "correct"];
+
+```
+Step 8: Update the Game State
+
+After evaluating the guess:
+
+    set the state to win if the guess matches the target word
+    move to the next row if the guess is wrong and guesses remain
+    set the state to lose if the player used the final row without solving it
+
+if (guess === game.targetWord) {
+```
+
+game.state = "win";
+} else if (game.currentRow === 5) {
+game.state = "lose";
+} else {
+game.currentRow++;
+game.currentCol = 0;
+}
+
+```
+Step 9: Render the Board
+
+Your UI layer should update the page based on the current game data.
+
+The render function should:
+
+    fill each box with the correct letter
+    apply color classes or styles based on feedback
+    update the status message
+
+This is the part that should focus on what the player sees, not on the rules themselves.
+Step 10: Add a Restart Button
+
+Create a button that resets the game data and re-renders the board.
+
+restartBtn.addEventListener("click", () => {
+```
+
+restartGame();
+renderGame();
+});
+
+```
+
+Your restart logic should:
+
+    pick or reset the target word
+    clear the guesses
+    reset the row and column values
+    set the state back to playing
+
+Step 11: Style the Board with CSS
+
+At minimum, your CSS should make the board easy to read and visually organized.
+
+Style these parts:
+
+    the board grid
+    the letter boxes
+    the feedback colors
+    the status message
+    the restart button
+
+Use CSS Grid or Flexbox for layout. CSS Grid is often a very good choice for this assignment.
+Step 12: Test All Cases
+
+Before submitting, test all of these:
+
+    typing letters into the row
+    using backspace
+    pressing enter with fewer than 5 letters
+    submitting a full wrong guess
+    winning the game
+    losing the game
+    trying to type after the game ended
+    restarting the game
+    the live GitHub Pages version
+
+Step 13: Deploy to GitHub Pages
+
+Push your new files to your GitHub repository and test the live page after deployment.
+
+Make sure your main page links to the new game page so it is easy to reach.
+```
+Suggested Development Order
+
+    build the HTML structure
+    style the board so it looks correct
+    store the game data in an object
+    get letters to appear in the board
+    get backspace working
+    get enter submission working
+    evaluate guesses and apply colors
+    add win and lose states
+    prevent extra input after the game ends
+    add restart logic
+    clean up the code structure
+
+This order helps you build from the smallest working pieces upward.
+Hints and Advice
+
+    Start with a fixed target word before trying random words.
+    Get the board display working before worrying about colors.
+    Keep your logic functions separate from your rendering functions.
+    Use console.log() during development to inspect state changes.
+    Finish the core playable version first, then improve visuals.
+    Do not try to do everything in one giant function.
+
+Minimum Features Checklist
+
+    I created a new page on my GitHub Pages site
+    I built a 6 by 5 game board
+    I can type letters with the keyboard
+    I can remove letters with backspace
+    I can submit a 5-letter guess with enter
+    I give feedback for each letter
+    I track the game state with playing, win, or lose
+    I stop input after the game ends
+    I included a restart option
+    I separated game logic from rendering as much as possible
+    I tested the live GitHub Pages version
+
+Stretch Goals
+
+These are optional, but they are great extensions if your core game is working:
+
+    choose a random word from an array
+    add an on-screen keyboard
+    animate tiles when a guess is submitted
+    add a small timer
+    show past win/loss totals
+    prevent non-letter keys from being added
+    use localStorage to save statistics
+
+Submission
+
+Submit the following:
+
+    your GitHub repository link
+    the live GitHub Pages link to the new game page
+
+Grading Focus
+
+    Functionality: the game works correctly
+    Game logic: guesses, states, and restart behavior are handled correctly
+    JavaScript organization: reasonable separation of logic and UI
+    User experience: the board is readable and the game is understandable to play
+    Deployment: the live GitHub Pages version works
+
+Key Reminder
+
+This assignment is not only about making something that looks like a word game. It is about applying the ideas from the module in a clean and playable way.
+
+Build the core version first, keep your code organized, and make sure the live page actually works.

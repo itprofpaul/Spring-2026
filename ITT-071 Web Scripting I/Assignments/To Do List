@@ -1,0 +1,62 @@
+Goal
+
+Build a to-do list app that supports tagging, filtering, and persistent storage.
+Requirements
+Core features
+
+    Add a task with:
+
+        task name (required)
+
+        optional tag (example: school, work, personal)
+
+    Display tasks in a list
+
+    Mark tasks complete
+
+    Delete tasks
+
+Filters
+
+    Filter by:
+
+        All
+
+        Active
+
+        Completed
+
+    Filter by tag (dropdown or buttons)
+
+Persistence
+
+    All tasks must persist using localStorage
+
+    On reload, tasks must reappear correctly
+
+Validation and UX
+
+    Show an error message if task name is blank
+
+    Clear the form after a successful add
+
+    Show a small counter: “3 active tasks”
+
+Suggested data model
+
+Each task should look like:
+{
+id: 1700000000000,
+text: "Finish Module 7 assignment",
+tag: "school",
+done: false
+}
+
+
+Submission
+
+    GitHub repo link
+
+    GitHub Pages link
+
+    README includes features and a screenshot

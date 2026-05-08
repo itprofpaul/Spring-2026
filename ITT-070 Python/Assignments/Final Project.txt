@@ -1,0 +1,363 @@
+Inventory and Purchase Order System
+
+ 
+Course Final Project Assignment
+Overview
+
+For your final project, you will design and build a console-based Inventory and Purchase Order System in Python. This program should simulate a small business inventory workflow by managing products, vendors, stock levels, purchase orders, shipments, and reports.
+
+This is a large multi-file project intended to bring together everything we have learned in this course. Your system must be built using multiple Python files, include custom classes, save and load data from files, and demonstrate strong program organization.
+
+You will submit your work as a GitHub repository link containing all required files.
+Project Scenario
+
+A small business needs a program to manage inventory and restocking. The company must be able to:
+
+    store products and vendors
+    track stock levels
+    identify low-stock items
+    create purchase orders
+    receive shipments
+    update inventory
+    generate useful reports
+    save and reload all data
+
+Your program must function as a realistic business application, not just a set of disconnected menus.
+Learning Goals
+
+By completing this project, you will demonstrate your ability to:
+
+    break a large problem into smaller parts
+    organize a program across multiple .py files
+    design and use classes
+    work with lists, dictionaries, and nested data
+    create and call functions effectively
+    use loops and conditionals to control program flow
+    validate user input
+    handle errors gracefully
+    read from and write to files
+    search, sort, and report on stored data
+    use GitHub to organize and submit code
+
+Required Program Features
+1. Multi-File Program Structure
+
+Your project must use multiple Python files.
+
+At minimum, your repository must include:
+
+    main.py
+    models.py
+    inventory_manager.py
+    file_manager.py
+    reports.py
+
+You may add more files if needed, but these five are required.
+File responsibilities
+
+main.py
+
+    contains the main menu and starts the program
+
+models.py
+
+    contains your class definitions
+
+inventory_manager.py
+
+    contains core functions for adding, editing, searching, sorting, and processing inventory and purchase orders
+
+file_manager.py
+
+    contains functions for saving and loading data
+
+reports.py
+
+    contains all reporting functions
+
+2. Required Classes
+
+Your project must include at least 3 custom classes:
+Product
+
+Must include:
+
+    product ID
+    product name
+    category
+    quantity in stock
+    reorder level
+    reorder quantity
+    unit price
+    vendor ID
+    active status
+
+Vendor
+
+Must include:
+
+    vendor ID
+    vendor name
+    contact name
+    phone
+    email
+    city/state or address
+
+PurchaseOrder
+
+Must include:
+
+    PO number
+    vendor ID
+    date created
+    items ordered
+    total cost
+    status
+
+Each class must include methods that make sense for that class, such as displaying data or converting data to a dictionary for saving.
+3. Product Management
+
+Your program must allow the user to:
+
+    add a product
+    view all products
+    search for products
+    edit a product
+    deactivate a product
+    display low-stock products
+
+4. Vendor Management
+
+Your program must allow the user to:
+
+    add a vendor
+    view all vendors
+    search vendors
+    edit vendor information
+
+5. Purchase Order System
+
+Your program must allow the user to:
+
+    create a purchase order
+    select a vendor
+    add one or more products to the order
+    calculate the order total
+    store the purchase order
+    view existing purchase orders
+    mark an order as received
+
+6. Shipment Receiving
+
+When a purchase order is marked as received, your program must:
+
+    verify the PO exists
+    verify the PO has not already been received
+    update inventory quantities correctly
+    update PO status
+    prevent duplicate receiving
+
+7. Search Features
+
+Your project must include at least 4 search features.
+
+Examples:
+
+    search by product ID
+    search by product name
+    search by category
+    search by vendor
+    search by PO number
+
+8. Sort Features
+
+Your project must include at least 3 sort features.
+
+Examples:
+
+    sort products by name
+    sort by quantity
+    sort by price
+    sort by vendor
+    sort purchase orders by date
+
+9. Reports
+
+Your project must include at least 3 report functions.
+
+Recommended reports:
+
+    full inventory report
+    low-stock report
+    total inventory value report
+    open purchase orders reports
+
+You may add more reports for extra depth.
+10. Save and Load
+
+Your program must save and load data using JSON.
+
+At minimum, the following must be saved and loaded:
+
+    products
+    vendors
+    purchase orders
+
+Your save and load system must work correctly even after the program is closed and restarted.
+11. Input Validation and Error Handling
+
+Your project must include at least 5 meaningful examples of input validation or exception handling.
+
+Examples:
+
+    invalid menu choice
+    non-numeric quantity
+    duplicate product ID
+    duplicate vendor ID
+    file not found during load
+    invalid PO number
+    negative quantity where not allowed
+
+Required Repository Contents
+
+Your GitHub repository must contain all of the following:
+
+    main.py
+    models.py
+    inventory_manager.py
+    file_manager.py
+    reports.py
+    README.md
+    reflection.md
+    sample_data.json
+    at least one additional JSON data file created by your program after testing
+
+README Requirements
+
+Your README.md must include:
+
+    project title
+    project description
+    list of features
+    list of required files
+    instructions for running the program
+    explanation of how data is stored
+    explanation of any extra features added
+    your name and course section
+
+Reflection Requirements
+
+Your reflection.md must include at least the following sections:
+
+    What part of the project was hardest?
+    What bug took the longest to solve?
+    How did you organize your code across multiple files?
+    How does your save/load system work?
+    What would you improve if you had another week?
+
+Your reflection must be written in complete sentences and be at least 400 words.
+
+To make this project your own, and to ensure you understand your code, the following are required:
+1. Unique Dataset
+
+You must create your own original business scenario and sample data.
+
+Your project must include:
+
+    at least 25 products
+    at least 6 vendors
+    at least 8 purchase orders
+    at least 5 product categories
+
+These must be realistic and consistent.
+2. Unique Feature Requirement
+
+You must add 1 original feature beyond the required features.
+
+Examples:
+
+    product usage tracking
+    discontinued item tracking
+    vendor performance score
+    reorder suggestion system
+    restock cost estimator
+    item transaction log
+    export report to text file
+
+You must explain this feature in your README and reflection.
+3. Function Header Comments
+
+Every function you write must include a short header comment explaining:
+
+    what the function does
+    its parameters
+    what it returns, if anything
+
+4. Code Understanding Requirement
+
+You may be asked to explain any part of your code. If you cannot explain your own code, that will affect your grade.
+5. Live Demonstration Requirement
+
+You must complete a short in-class or recorded walkthrough showing:
+
+    your program running
+    your menu system
+    adding a product
+    creating a purchase order
+    receiving a shipment
+    running a report
+    saving and loading data
+    explaining one bug you fixed
+
+6. Oral or Written Code Defense
+
+You must also submit a short text file named code_explanation.txt answering these questions:
+
+    How are products stored in your program?
+    How are purchase orders connected to vendors and products?
+    How does receiving a shipment change inventory?
+    How does your JSON save/load process work?
+    What is one bug you fixed and how did you fix it?
+
+Each answer should be 3 to 5 sentences.
+Required File and Function Expectations
+
+Your project must include:
+
+    at least 3 classes
+    at least 15 functions
+    at least 5 Python files
+    at least 3 JSON-related functions
+    at least 4 search-related functions
+    at least 3 sort-related functions
+    at least 5 report-related functions
+
+You should not place all program logic in main.py.
+Program Quality Expectations
+
+Your program should demonstrate:
+
+    clear variable and function names
+    clean indentation and formatting
+    logical separation of code by file
+    comments where needed
+    a working menu loop
+    readable output
+    no major crashes during normal use
+
+Submission Instructions
+Submit the following in Canvas:
+
+    A link to your GitHub repository
+    A short submission comment confirming that:
+        your repository is complete
+        your program runs
+        your reflection and explanation files are included
+
+Your GitHub repository must include:
+
+    all required .py files
+    all required documentation files
+    all required data files
+
+Make sure your repository is accessible to me.

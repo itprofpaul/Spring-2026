@@ -1,0 +1,196 @@
+
+Final Project: Build a Complex Web App
+
+Design and build a polished multi-feature web application that demonstrates the skills you have developed throughout this course.
+Project Overview
+
+For your final project, you will create a complex web app using HTML, CSS, and JavaScript. Your project should show that you can move beyond a small demo and build something with multiple connected features, a clean interface, and organized code.
+
+Your project must be published as a new page or section on your existing GitHub Pages site.
+Approved Project Options
+
+You may choose one of the following ideas:
+
+    Recipe Finder
+    Habit Tracker
+    Flashcard Study App
+    Meme Caption Generator
+    Music Playlist Builder
+    Escape Room Puzzle Page
+
+You may also propose another project idea if it is approved and still meets the complexity requirements below.
+Additional Project Ideas
+
+If you want a different direction, these are also strong options:
+
+    Book Tracker
+    Movie Watchlist App
+    Simple Budget Tracker
+    Workout Planner
+    Travel Planner
+    Quiz Game App
+    Event Countdown Dashboard
+    Task Manager with Categories
+    Typing Challenge App
+    Mini Learning Portal
+
+The exact idea matters less than the quality and complexity of the finished web app.
+What Counts as a Complex Web App?
+
+A complex web app is more than a single button and a single response. It should have enough features and structure to feel like a real application instead of a quick class demo.
+
+Your project should include:
+
+    multiple connected features
+    clear user interaction
+    dynamic updates with JavaScript
+    organized code
+    a polished user interface
+
+Required Project Features
+
+Your final project must include all of the following:
+
+    A clear purpose
+    Your app should solve a problem, support a task, provide a tool, or create an interactive experience.
+    At least 3 major interactive features
+    Examples: search, filtering, adding/removing items, editing content, generating results, tracking progress, puzzle logic, scoring, multiple views, saved data, or keyboard interaction.
+    DOM manipulation with JavaScript
+    Your project must dynamically update content on the page.
+    User input handling
+    Your app must respond to user choices, typing, buttons, forms, or other interactions.
+    Data structures in JavaScript
+    Use arrays, objects, or both to manage your app's information.
+    Functions organized by purpose
+    Your code should not be one long script. Separate responsibilities where possible.
+    Styling with CSS
+    Your app should look intentional, readable, and visually organized.
+    Client-side validation or rules
+    Examples: prevent blank input, prevent duplicates, require valid selections, or stop invalid actions.
+    At least one advanced course concept
+    Examples include localStorage, fetch/API use, query parameters, loading states, timers, keyboard input, game states, or separation of UI and logic.
+    Deployment on GitHub Pages
+    The final version must work on your live site.
+
+Complexity Expectations
+
+Your project should demonstrate that you can combine multiple techniques into one experience. Strong projects will usually include several of these:
+
+    multiple sections or views
+    reusable functions
+    organized data structures
+    conditional rendering or state changes
+    user-friendly messages and feedback
+    saved data with localStorage
+    an API connection or external data source
+    searching, sorting, or filtering
+    game logic or progression logic
+    responsive design considerations
+
+A project that is technically correct but too small or too simple may not meet the final project standard.
+Suggested Features by Project Type
+```
+Recipe Finder
+
+    search by keyword
+    display recipe cards
+    filter or categorize results
+    save favorites
+    show recipe details in a larger view
+
+Habit Tracker
+
+    add and remove habits
+    track completion by day
+    show streaks or progress
+    save data with localStorage
+    display summary statistics
+
+Flashcard Study App
+
+    create flashcards
+    flip cards to reveal answers
+    move through a deck
+    track score or progress
+    save decks or card data
+
+Meme Caption Generator
+
+    choose from multiple images
+    add top and bottom text
+    preview the result live
+    switch layouts or styles
+    save favorite meme setups
+
+Music Playlist Builder
+
+    add songs to a playlist
+    remove songs
+    sort or filter tracks
+    show playlist length or totals
+    save playlists locally
+
+Escape Room Puzzle Page
+
+    multiple puzzles or clues
+    locked and unlocked states
+    timers or hints
+    inventory or code input system
+    win state when all puzzles are solved
+
+```
+Technical Requirements
+
+    Use HTML for structure
+    Use CSS for layout and design
+    Use JavaScript for functionality
+    Keep files reasonably organized
+    Use meaningful variable and function names
+    Indent and format your code so it is readable
+    Your project must run correctly in the browser without instructor fixes
+    Your project must be published on GitHub Pages
+
+Minimum Deliverables
+
+    a completed web app
+    a working link on GitHub Pages
+    a link from your main site or navigation to the project page
+    code that is readable and reasonably organized
+
+What Will Hurt Your Grade
+
+    a project that is too small or too simple
+    broken functionality
+    missing required features
+    poor organization that makes the project hard to follow
+    a project that only works locally and not on GitHub Pages
+    very limited styling or unclear layout
+    copying a tutorial too closely without meaningful customization
+
+Submission
+
+Submit the following:
+
+    your GitHub repository link
+    your live GitHub Pages project link
+    the title of the project you chose
+
+Project Checklist
+
+    I chose an approved project idea or got a custom idea approved
+    My app has a clear purpose
+    My app includes at least 3 major interactive features
+    My app uses JavaScript to update the page dynamically
+    My app handles user input correctly
+    My app uses arrays, objects, or both
+    My code is organized into meaningful functions
+    My app includes at least one advanced course concept
+    My app is styled and easy to use
+    My app works on GitHub Pages
+    I linked the project from my main site or navigation
+
+Final Reminder
+
+This project should show what you can build when you combine design, logic, interactivity, and structure into one complete application.
+
+Choose an idea that interests you, but make sure the finished project is substantial, functional, and polished.
